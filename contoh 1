@@ -1,0 +1,18 @@
+>> p = [1 -2 1]
+
+p =
+
+     1    -2     1
+
+>> r =roots (p)
+
+r =
+
+     1
+     1
+
+>> pvalue = polyval(p,1)
+
+pvalue =
+
+     0
