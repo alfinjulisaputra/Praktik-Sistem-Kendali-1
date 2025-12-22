@@ -106,3 +106,138 @@ p5 =
 
 
 >> % NO 3
+>> % bagian a
+>> s = tf('s');
+>>  G1 = 20*(s+2)*(s+3)*(s+6)*(s+8)/s*(s+7)*(s+9)*(s+10)*(s+15);
+>> numG = 20* conv([1 2], conv([1 3], conv([1 6], [1 8])));
+>> denG = 1 * conv([1 7], conv([1 9], conv([1 10], [1 15])));
+>> G1A = tf(numG,denG)
+
+G1A =
+ 
+  20 s^4 + 380 s^3 + 2480 s^2 + 6480 s + 5760
+  -------------------------------------------
+    s^4 + 41 s^3 + 613 s^2 + 3975 s + 9450
+ 
+Continuous-time transfer function.
+Model Properties
+>> G1C = deconv(numG,denG)
+
+G1C =
+
+    20
+
+>> % bagian b
+>> num = [1 17 99 223 140];
+>> den = [1 32 363 2092 5052 4320];
+>> G2 = tf(num,den)
+
+G2 =
+ 
+         s^4 + 17 s^3 + 99 s^2 + 223 s + 140
+  -------------------------------------------------
+  s^5 + 32 s^4 + 363 s^3 + 2092 s^2 + 5052 s + 4320
+ 
+Continuous-time transfer function.
+Model Properties
+>> G2 = deconv(num,den)
+
+G2 =
+
+     0
+
+>> G3 = G1C + G2
+
+G3 =
+
+    20
+
+>> G4 = G1C - G2
+
+G4 =
+
+    20
+
+>> G5 = conv(G1C,G2)
+
+G5 =
+
+     0
+
+>> % NO 4 
+>> % bagian a
+>> num = [5 10];
+>> den = [1 8 15 0];
+>> G6 = tf (num,den)
+
+G6 =
+ 
+       5 s + 10
+  ------------------
+  s^3 + 8 s^2 + 15 s
+>> % bagian b
+>> num = [5 10];
+>> den = [1 6 9 0];
+>> G7 = tf(num, den)
+
+G7 =
+ 
+      5 s + 10
+  -----------------
+  s^3 + 6 s^2 + 9 s
+ 
+Continuous-time transfer function.
+Model Properties
+>> [C,P,K] = residue(num,den)
+
+C =
+
+   -1.1111
+    1.6667
+    1.1111
+
+
+P =
+
+    -3
+    -3
+     0
+
+
+K =
+
+     []
+
+>> % bagian c
+>> num = [5 10];
+>> den = [1 6 34 0];
+>> G8 = tf(num,den)
+
+G8 =
+ 
+       5 s + 10
+  ------------------
+  s^3 + 6 s^2 + 34 s
+ 
+Continuous-time transfer function.
+Model Properties
+>> [C,p,K] = residue(num,den)
+
+C =
+
+  -0.1471 - 0.4118i
+  -0.1471 + 0.4118i
+   0.2941 + 0.0000i
+
+
+p =
+
+  -3.0000 + 5.0000i
+  -3.0000 - 5.0000i
+   0.0000 + 0.0000i
+
+
+K =
+
+     []
+ 
