@@ -1,0 +1,105 @@
+============ NO 1 ============
+>> % bagian a
+>> p = [1 2 -1 3]; 
+>> dp = polyder(p)
+
+dp =
+
+     3     4    -1
+
+>> 
+>> % bagian b
+>> a = [3 6 9];
+>> b = [1 2 0];
+>> dp2 = polyder(conv(a,b))
+
+dp2 =
+
+    12    36    42    18
+
+>> 
+============ NO 2 ================
+>> p = [1 2 -1 3];
+>> ip = polyint(p)
+
+ip =
+
+    0.2500    0.6667   -0.5000    3.0000         0
+
+>> 
+============ NO 3 ==============
+>> K = 2;
+>> T = 3;
+>> num = K;
+>> den = [T 1];
+>> H = tf(num, den)
+
+
+H =
+ 
+     2
+  -------
+  3 s + 1
+ 
+Continuous-time transfer function.
+Model Properties
+>> >> K = 2;
+>> T = 3;
+>> num = K;
+>> den = [T 1];
+>> H = tf(num, den)
+
+H =
+ 
+     2
+  -------
+  3 s + 1
+ 
+Continuous-time transfer function.
+Model Properties
+>> 
+============ NO 4 ==================
+>> 
+>> num = [1 1];
+>> den = [1 -1 3];
+>> H = tf(num,den);
+>> t = 0:0.01:10;
+>> step(H,t)
+>> grid on
+>> title('Step Response')
+============== NO 5 ===============
+t = 0:0.01:10;
+>> K = 0.2;
+>> H1 = tf(K,[1 0]);
+>> step(H1,t)
+>> hold on
+>> K = 1.5;
+
+>> H2 = tf(K,[1 0]);
+>> step(H2,t)
+>> grid on
+>> legend('K=0.2','K=1.5')
+============== NO 6 ==============
+>> % respon 1
+>> T = 1;
+>> t = 0:0.01:10;
+>> K = 0.5; step(tf(K,[T 1]),t); hold on
+>> K = 1;   step(tf(K,[T 1]),t)
+>> K = 2;   step(tf(K,[T 1]),t)
+>> grid on
+>> legend('K=0.5','K=1','K=2')
+>> $ respon 2
+>> K = 1;
+>> T = 0.2; step(tf(K,[T 1]),t); hold on
+>> T = 0.5; step(tf(K,[T 1]),t)
+>> T = 1;   step(tf(K,[T 1]),t)
+>> T = 2;   step(tf(K,[T 1]),t)
+>> T = 4;   step(tf(K,[T 1]),t)
+>> grid on
+>> legend('T=0.2','T=0.5','T=1','T=2','T=4')
+>>
+================= NO 7 ================
+
+
+================= NO 8 ================
+
