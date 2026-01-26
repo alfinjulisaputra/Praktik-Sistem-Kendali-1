@@ -99,7 +99,47 @@ t = 0:0.01:10;
 >> legend('T=0.2','T=0.5','T=1','T=2','T=4')
 >>
 ================= NO 7 ================
+>> A = [0 1 ; -2 -6];
+>> B = [0 0 ; 4 8];
+>> C = [5 6];
+>> D = [7 0];
+>> sys = ss(A,B,C,D)
 
+sys =
+ 
+  A = 
+       x1  x2
+   x1   0   1
+   x2  -2  -6
+ 
+  B = 
+       u1  u2
+   x1   0   0
+   x2   4   8
+ 
+  C = 
+       x1  x2
+   y1   5   6
+ 
+  D = 
+       u1  u2
+   y1   7   0
+ 
+Continuous-time state-space model.
+Model Properties
+>> step(sys)
+>> tf(sys)
 
+ans =
+ 
+  From input 1 to output:
+  7 s^2 + 66 s + 34
+  -----------------
+    s^2 + 6 s + 2
+ 
+  From input 2 to output:
+    48 s + 40
+  -------------
+  s^2 + 6 s + 2
 ================= NO 8 ================
 
