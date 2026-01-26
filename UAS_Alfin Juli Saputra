@@ -142,4 +142,74 @@ ans =
   -------------
   s^2 + 6 s + 2
 ================= NO 8 ================
+>> g = 9.81; m = 8; r = 5; b = 10;
+>> A = [0 1; -g/r -b/(m*r^2)];
+>> B = [0; 0];
+>> C = eye(2);
+>> D = [0;0];
 
+sys = ss(A,B,C,D);
+
+initial(sys,[0.1 0])
+grid on
+
+================== NO 9 =================
+>> k = 50; c = 5; m = 2;
+>> A = [0 1; -k/m -c/m];
+>> B = [0; 1/m];
+>> C = [1 0];
+>> D = 0;
+
+sys = ss(A,B,C,D);
+
+Ts = 0.1;
+sys_d = c2d(sys,Ts)
+
+
+sys_d =
+ 
+  A = 
+            x1       x2
+   x1   0.8871  0.08484
+   x2   -2.121    0.675
+ 
+  B = 
+             u1
+   x1  0.002257
+   x2   0.04242
+ 
+  C = 
+       x1  x2
+   y1   1   0
+ 
+  D = 
+       u1
+   y1   0
+ 
+Sample time: 0.1 seconds
+Discrete-time state-space model.
+Model Properties
+>> 
+============== NO 10 =====================
+>> m = 1; c = 1; k = 50;
+>> A = [0 1; -k/m -c/m];
+>> B = [0; 1/m];
+>> C = [1 0];
+>> D = 0;
+
+sys = ss(A,B,C,D);
+
+step(sys)
+grid on
+
+tf_sys = tf(sys)
+
+tf_sys =
+ 
+       1
+  ------------
+  s^2 + s + 50
+ 
+Continuous-time transfer function.
+Model Properties
+>> 
